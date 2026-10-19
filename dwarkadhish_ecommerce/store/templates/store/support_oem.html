@@ -1,105 +1,99 @@
 {% extends 'base.html' %}
-
-{% block title %}OEM Collaboration - Dwarkadhish E-Commerce{% endblock %}
-
 {% block content %}
-<!-- OEM Collaboration Section -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold" data-aos="fade-up">Partner with Dwarkadhish E-Commerce</h2>
-    <p class="text-center lead" data-aos="fade-up" data-aos-delay="200">
-        Are you an OEM looking to expand your reach? Let's collaborate and bring high-quality solutions to businesses and government organizations.
-    </p>
 
-    <!-- Why Partner With Us -->
-    <div class="row mt-4">
-        <div class="col-md-4" data-aos="fade-right">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
-                    <h5>Expand Your Market</h5>
-                    <p>Reach a larger audience, including government and private buyers.</p>
-                </div>
+<!-- Page Hero -->
+<section class="nb-page-hero nb-stripe-yellow">
+    <div class="container">
+        <div class="nb-tag">OEM Partnership</div>
+        <h1 class="nb-title">Partner with Dwarkadhish E-Commerce</h1>
+        <p class="nb-subtitle">Are you an OEM looking to expand your reach? Let's collaborate and bring high-quality solutions to businesses and government organizations.</p>
+    </div>
+</section>
+
+<!-- Why Partner -->
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
+    <div class="container">
+        <div class="nb-tag">Benefits</div>
+        <h2 class="nb-title">Why Partner With Us?</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-icon-box">
+                <div class="icon">🌐</div>
+                <h5>Expand Your Market</h5>
+                <p>Reach a larger audience, including government and private buyers across India.</p>
             </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-shopping-cart fa-3x text-success mb-3"></i>
-                    <h5>Sell on GeM</h5>
-                    <p>Get assistance in registering and optimizing your GeM presence.</p>
-                </div>
+            <div class="nb-icon-box" style="background:var(--yellow);">
+                <div class="icon">🏛️</div>
+                <h5>Sell on GeM</h5>
+                <p>Get assistance in registering and optimizing your GeM presence for government procurement.</p>
             </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-truck fa-3x text-danger mb-3"></i>
-                    <h5>Seamless Distribution</h5>
-                    <p>We handle logistics and order fulfillment for bulk and tender orders.</p>
-                </div>
+            <div class="nb-icon-box">
+                <div class="icon">🚛</div>
+                <h5>Seamless Distribution</h5>
+                <p>We handle logistics and order fulfillment for bulk and tender orders efficiently.</p>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- OEM Contact Form -->
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-8">
-            <div class="card shadow-lg p-4">
-                <h3 class="text-center mb-4">OEM Collaboration Inquiry</h3>
+<!-- OEM Form -->
+<section class="nb-stripe nb-stripe-pink">
+    <div class="container">
+        <div style="max-width:700px; margin:0 auto;">
+            <div class="nb-tag">Inquiry Form</div>
+            <h2 class="nb-title">OEM Collaboration Inquiry</h2>
+            <div class="nb-card" style="margin-top:32px;">
                 <form method="post" action="{% url 'oem_contact' %}">
                     {% csrf_token %}
-                    <div class="mb-3">
-                        <label class="form-label">Company Name</label>
-                        <input type="text" name="company_name" class="form-control" required>
+                    <div class="nb-form-group">
+                        <label>Company Name</label>
+                        <input type="text" name="company_name" class="nb-input" required>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Your Name</label>
-                        <input type="text" name="contact_name" class="form-control" required>
+                    <div class="nb-form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="contact_name" class="nb-input" required>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" required>
+                    <div class="nb-form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="nb-input" required>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Phone Number</label>
-                        <input type="text" name="phone" class="form-control" required>
+                    <div class="nb-form-group">
+                        <label>Phone Number</label>
+                        <input type="text" name="phone" class="nb-input" required>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Registered on GeM?</label>
-                        <select name="gem_registered" id="gemRegistered" class="form-select" required onchange="toggleGemCategory()">
+                    <div class="nb-form-group">
+                        <label>Registered on GeM?</label>
+                        <select name="gem_registered" id="gemRegistered" class="nb-select" required onchange="toggleGemCategory()">
                             <option value="No">No</option>
                             <option value="Yes">Yes</option>
                         </select>
                     </div>
-                    <div class="mb-3" id="gemCategoryField" style="display: none;">
-                        <label class="form-label">GeM Category</label>
-                        <input type="text" name="gem_category" class="form-control">
+                    <div class="nb-form-group" id="gemCategoryField" style="display:none;">
+                        <label>GeM Category</label>
+                        <input type="text" name="gem_category" class="nb-input">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Products/Services Offered</label>
-                        <textarea name="products_services" class="form-control" rows="3" required></textarea>
+                    <div class="nb-form-group">
+                        <label>Products/Services Offered</label>
+                        <textarea name="products_services" class="nb-textarea" required></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Website (if any)</label>
-                        <input type="url" name="website" class="form-control">
+                    <div class="nb-form-group">
+                        <label>Website (if any)</label>
+                        <input type="url" name="website" class="nb-input">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Additional Information</label>
-                        <textarea name="additional_info" class="form-control" rows="3"></textarea>
+                    <div class="nb-form-group">
+                        <label>Additional Information</label>
+                        <textarea name="additional_info" class="nb-textarea"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Submit Inquiry</button>
+                    <button type="submit" class="nb-btn nb-btn-black" style="width:100%;">Submit Inquiry</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<!-- JavaScript to Show/Hide GeM Category Field -->
 <script>
     function toggleGemCategory() {
-        let gemRegistered = document.getElementById("gemRegistered").value;
-        let gemCategoryField = document.getElementById("gemCategoryField");
-        gemCategoryField.style.display = gemRegistered === "Yes" ? "block" : "none";
+        const val = document.getElementById('gemRegistered').value;
+        document.getElementById('gemCategoryField').style.display = val === 'Yes' ? 'block' : 'none';
     }
 </script>
 

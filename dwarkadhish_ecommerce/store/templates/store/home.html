@@ -1,249 +1,230 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <!-- Preloader -->
 <div id="preloader">
     <div class="preloader-content">
-        <img src="/static/images/logobg.png" alt="Company Logo" class="preloader-logo">
+        <img src="{% static 'images/DElogo.png' %}" alt="Logo">
         <div class="spinner"></div>
     </div>
 </div>
 
+<!-- Hero Carousel -->
+<div class="nb-carousel" id="heroCarousel">
+    <div class="nb-carousel-inner" id="carouselInner">
 
-<!-- Hero Section with Carousel -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="5000">
-    <div class="carousel-inner">
         <!-- Slide 1 -->
-        <div class="carousel-item active">
+        <div class="nb-slide nb-hero-yellow">
             <div class="container">
-                <div class="row align-items-center" style="height: 100vh;">
-                    <div class="col-md-6 text-start">
-                        <h1 class="display-4">Empowering Businesses with IT, Medical & Industrial Solutions!</h1>
-                        <p class="lead text-muted">Your one-stop shop for cutting-edge technology, healthcare essentials, and industrial tools.</p>
-                        <a href="contact/" class="btn btn-primary">Connect with Us Now</a>
+                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
+                    <div style="flex:1; min-width:280px;">
+                        <div class="nb-tag">GeM Registered Reseller</div>
+                        <h1 class="nb-title">Empowering Businesses with IT, Medical & Industrial Solutions!</h1>
+                        <p class="nb-subtitle">Your one-stop shop for cutting-edge technology, healthcare essentials, and industrial tools.</p>
+                        <a href="{% url 'contact' %}" class="nb-btn nb-btn-black">Connect with Us Now</a>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="/static/images/Gemlogo.png" class="img-fluid" alt="Hero Image 1">
+                    <div style="flex:1; min-width:240px; text-align:center;">
+                        <img src="{% static 'images/Gemlogo.png' %}" class="nb-hero-img" alt="GeM Logo">
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Slide 2 -->
-        <div class="carousel-item">
+        <div class="nb-slide nb-hero-blue">
             <div class="container">
-                <div class="row align-items-center" style="height: 100vh;">
-                    <div class="col-md-6 text-start">
-                        <h1 class="display-4">Upgrade Your Tech – Best IT Products at Unbeatable Prices!</h1>
-                        <p class="lead text-muted">Laptops, desktops, software & accessories – Fast delivery, premium brands!</p>
-                        <a href="products/" class="btn btn-primary">Shop Now</a>
+                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
+                    <div style="flex:1; min-width:280px;">
+                        <div class="nb-tag">IT Products</div>
+                        <h1 class="nb-title">Upgrade Your Tech – Best IT Products at Unbeatable Prices!</h1>
+                        <p class="nb-subtitle">Laptops, desktops, software & accessories – Fast delivery, premium brands!</p>
+                        <a href="{% url 'products' %}" class="nb-btn nb-btn-black">Shop Now</a>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="/static/images/hero1bg.png" class="img-fluid" alt="Hero Image 1">
+                    <div style="flex:1; min-width:240px; text-align:center;">
+                        <img src="{% static 'images/hero1bg.png' %}" class="nb-hero-img" alt="IT Products">
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Slide 3 -->
-        <div class="carousel-item">
+        <div class="nb-slide nb-hero-green">
             <div class="container">
-                <div class="row align-items-center" style="height: 100vh;">
-                    <div class="col-md-6 text-start">
-                        <h1 class="display-4">Reliable Inverters & Batteries – Uninterrupted Power, Anytime!</h1>
-                        <p class="lead" style="color: rgb(15, 14, 1);">High-performance power backup solutions for homes, offices, and industries. 🚀🔋</p>
-                        <a href="about/" class="btn btn-primary">Browse Products</a>
+                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
+                    <div style="flex:1; min-width:280px;">
+                        <div class="nb-tag">Power Solutions</div>
+                        <h1 class="nb-title">Reliable Inverters & Batteries – Uninterrupted Power, Anytime!</h1>
+                        <p class="nb-subtitle">High-performance power backup solutions for homes, offices, and industries.</p>
+                        <a href="{% url 'products' %}" class="nb-btn nb-btn-black">Browse Products</a>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="/static/images/hero2bg.png" class="img-fluid" alt="Hero Image 2">
+                    <div style="flex:1; min-width:240px; text-align:center;">
+                        <img src="{% static 'images/hero2bg.png' %}" class="nb-hero-img" alt="Power Solutions">
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Slide 4 -->
-        <div class="carousel-item">
+        <div class="nb-slide nb-hero-pink">
             <div class="container">
-                <div class="row align-items-center" style="height: 100vh;">
-                    <div class="col-md-6 text-start">
-                        <h1 class="display-4">Partner with Us...</h1>
-                        <p class="lead" style="color: rgb(15, 14, 1);">Are you an OEM looking to expand your reach? Let's collaborate and bring high-quality solutions to businesses and government organizations.🚀</p>
-                        <a href="support-oem/" class="btn btn-primary">Partner with Us</a>
+                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
+                    <div style="flex:1; min-width:280px;">
+                        <div class="nb-tag">OEM Partnership</div>
+                        <h1 class="nb-title">Partner with Us...</h1>
+                        <p class="nb-subtitle">Are you an OEM looking to expand your reach? Let's collaborate and bring high-quality solutions to businesses and government organizations.</p>
+                        <a href="{% url 'support_oem' %}" class="nb-btn nb-btn-black">Partner with Us</a>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="/static/images/part1.png" class="img-fluid" alt="Partner Image 2">
+                    <div style="flex:1; min-width:240px; text-align:center;">
+                        <img src="{% static 'images/part1.png' %}" class="nb-hero-img" alt="Partner">
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
-    
-    <!-- Carousel Indicators -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
-    </div>
+
+    <button class="nb-carousel-btn prev" onclick="carouselMove(-1)">&#8592;</button>
+    <button class="nb-carousel-btn next" onclick="carouselMove(1)">&#8594;</button>
 </div>
 
-<script>
-    // Enable arrow key navigation
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "ArrowLeft") {
-            new bootstrap.Carousel(document.querySelector("#heroCarousel")).prev();
-        } else if (event.key === "ArrowRight") {
-            new bootstrap.Carousel(document.querySelector("#heroCarousel")).next();
-        }
-    });
-</script>
-
-
-
-
+<div class="nb-carousel-dots" id="carouselDots">
+    <div class="nb-dot active" onclick="carouselGo(0)"></div>
+    <div class="nb-dot" onclick="carouselGo(1)"></div>
+    <div class="nb-dot" onclick="carouselGo(2)"></div>
+    <div class="nb-dot" onclick="carouselGo(3)"></div>
+</div>
 
 <!-- About Section -->
-<section class="about py-5">
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
     <div class="container">
-        <h2 class="text-center mb-4" data-aos="fade-up">About Us</h2>
-        <div class="row">
-            <div class="col-md-6" data-aos="fade-right">
-                <p><strong>Dwarkadhish E-Commerce</strong> is a <strong>GeM-registered reseller</strong>, committed to providing high-quality products with a focus on:</p>
-                <ul class="list-unstyled">
-                    <li>✔ <strong>IT Solutions:</strong> Laptops, desktops, networking devices, software, and accessories.</li>
-                    <li>✔ <strong>CCTV & Security Solutions:</strong> Surveillance cameras, DVRs, biometric systems, and security accessories.</li>
-                    <li>✔ <strong>Medical & Surgical Supplies:</strong> Chemicals, masks, gloves, surgical tools, and consumables.</li>
-                    <li>✔ <strong>Tools & Equipment:</strong> Industrial training tools, electrical testing instruments, and workshop essentials.</li>
-                    <li>✔ <strong>Furniture Solutions:</strong> Office desks, chairs, ergonomic workstations, and institutional furniture.</li>
+        <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+            <div style="flex:1; min-width:280px;">
+                <div class="nb-tag">Who We Are</div>
+                <h2 class="nb-title">About Dwarkadhish E-Commerce</h2>
+                <p style="margin-bottom:16px;"><strong>Dwarkadhish E-Commerce</strong> is a <strong>GeM-registered reseller</strong>, committed to providing high-quality products:</p>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+                    <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ IT Solutions: Laptops, desktops, networking & accessories</li>
+                    <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ CCTV & Security Solutions</li>
+                    <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ Medical & Surgical Supplies</li>
+                    <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ Tools & Industrial Equipment</li>
+                    <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ Furniture Solutions</li>
                 </ul>
-
-                <p>As a trusted <strong>Government e-Marketplace (GeM)</strong> vendor, we ensure:</p>
-                <ul class="list-unstyled">
-                    <li>✔ Transparent & compliant procurement process.</li>
-                    <li>✔ Competitive pricing & high-quality assurance.</li>
-                    <li>✔ Reliable & timely delivery across India.</li>
-                </ul>
-
-                <p>We strive to empower businesses, government institutions, and individuals with top-tier solutions. Experience seamless shopping with <strong>Dwarkadhish E-Commerce</strong> – where quality meets innovation!</p>
+                <a href="{% url 'about' %}" class="nb-btn nb-btn-black">Learn More</a>
             </div>
-            <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/logobg.png' %}" class="img-fluid">
+            <div style="flex:1; min-width:240px; text-align:center;">
+                <img src="{% static 'images/DElogo.png' %}" style="width:100%; max-width:360px; border:2px solid #000; box-shadow:6px 6px 0 #000; background:#fff; padding:16px;" alt="Logo">
             </div>
         </div>
     </div>
 </section>
 
 <!-- Services Section -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold" data-aos="fade-up">Our Services</h2>
-    <div class="row mt-4">
-        <!-- GeM Product Supply -->
-        <div class="col-md-4" data-aos="fade-right">
-            <div class="card shadow-lg border-0 service-card">
-                <div class="card-body text-center">
-                    <i class="fas fa-shopping-cart fa-3x text-primary mb-3"></i>
-                    <h5>All Kinds of Product Supply on GeM</h5>
-                    <p>We are a trusted reseller on the Government e-Marketplace (GeM), supplying IT products, medical equipment, industrial tools, and more.</p>
-                </div>
-            </div>
-        </div>
-        <!-- AMC & Services -->
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-lg border-0 service-card">
-                <div class="card-body text-center">
-                    <i class="fas fa-handshake fa-3x text-success mb-3"></i>
-                    <h5>Annual Maintenance Contracts (AMCs)</h5>
-                    <p>We provide various AMCs, including IT infrastructure, medical equipment, and industrial tools. Contact us to discuss your specific requirements.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Non-GeM Buyers -->
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="card shadow-lg border-0 service-card">
-                <div class="card-body text-center">
-                    <i class="fas fa-phone-volume fa-3x text-danger mb-3"></i>
-                    <h5>Exclusive Deals for Non-GeM Buyers</h5>
-                    <p>If you are not registered on GeM or are a private buyer, don’t worry! Contact us for customized solutions and the best prices on all products.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Testimonials Section -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold" data-aos="fade-up">What Our Clients Say</h2>
-    <div class="row mt-4">
-        <div class="col-md-4" data-aos="zoom-in">
-            <div class="card p-3 shadow-sm">
-                <div class="d-flex align-items-center">
-                    <img src="https://randomuser.me/api/portraits/men/1.jpg" class="rounded-circle me-3" width="50">
-                    <h5>Ravi Sharma</h5>
-                </div>
-                <p class="mt-3">"Dwarkadhish E-Commerce provides top-notch IT products with fast delivery!"</p>
-            </div>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="card p-3 shadow-sm">
-                <div class="d-flex align-items-center">
-                    <img src="https://randomuser.me/api/portraits/women/2.jpg" class="rounded-circle me-3" width="50">
-                    <h5>Pooja Mehta</h5>
-                </div>
-                <p class="mt-3">"Their industrial training tools are of excellent quality. Highly recommended!"</p>
-            </div>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-            <div class="card p-3 shadow-sm">
-                <div class="d-flex align-items-center">
-                    <img src="https://randomuser.me/api/portraits/men/3.jpg" class="rounded-circle me-3" width="50">
-                    <h5>Ajay Verma</h5>
-                </div>
-                <p class="mt-3">"The best platform for medical & surgical supplies with reliable service."</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section class="contact-section py-5 text-light text-center" 
-    style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">
+<section class="nb-stripe nb-stripe-yellow">
     <div class="container">
-        <h2 class="fw-bold" data-aos="fade-up">Get in Touch</h2>
-        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">We are here to help you with your business needs!</p>
-        
+        <div class="nb-tag">What We Do</div>
+        <h2 class="nb-title">Our Services</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-icon-box">
+                <div class="icon">🛒</div>
+                <h5>All Kinds of Product Supply on GeM</h5>
+                <p>Trusted reseller on the Government e-Marketplace supplying IT, medical, industrial tools, and more.</p>
+            </div>
+            <div class="nb-icon-box">
+                <div class="icon">🤝</div>
+                <h5>Annual Maintenance Contracts (AMCs)</h5>
+                <p>IT infrastructure, medical equipment, and industrial tool AMCs. Contact us for your requirements.</p>
+            </div>
+            <div class="nb-icon-box">
+                <div class="icon">📞</div>
+                <h5>Exclusive Deals for Non-GeM Buyers</h5>
+                <p>Not on GeM? Contact us for customized solutions and the best prices on all products.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
+    <div class="container">
+        <div class="nb-tag">Reviews</div>
+        <h2 class="nb-title">What Our Clients Say</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-card">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" style="width:48px; height:48px; border:2px solid #000; border-radius:50%;" alt="Ravi">
+                    <strong>Ravi Sharma</strong>
+                </div>
+                <p>"Dwarkadhish E-Commerce provides top-notch IT products with fast delivery!"</p>
+            </div>
+            <div class="nb-card">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <img src="https://randomuser.me/api/portraits/women/2.jpg" style="width:48px; height:48px; border:2px solid #000; border-radius:50%;" alt="Pooja">
+                    <strong>Pooja Mehta</strong>
+                </div>
+                <p>"Their industrial training tools are of excellent quality. Highly recommended!"</p>
+            </div>
+            <div class="nb-card">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <img src="https://randomuser.me/api/portraits/men/3.jpg" style="width:48px; height:48px; border:2px solid #000; border-radius:50%;" alt="Ajay">
+                    <strong>Ajay Verma</strong>
+                </div>
+                <p>"The best platform for medical & surgical supplies with reliable service."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="nb-stripe nb-stripe-black">
+    <div class="container" style="text-align:center;">
+        <div class="nb-tag" style="background:var(--yellow); color:#000;">Get In Touch</div>
+        <h2 class="nb-title" style="color:#fff;">We Are Here to Help Your Business!</h2>
+        <p style="color:#ccc; margin-bottom:32px; font-size:1.1rem;">Reach out for product inquiries, AMCs, or OEM partnerships.</p>
+
         {% if messages %}
-        <div class="alert alert-success">
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
+        <div class="nb-alert nb-alert-success" style="max-width:600px; margin:0 auto 24px;">
+            {% for message in messages %}{{ message }}{% endfor %}
         </div>
         {% endif %}
-        
-        <form method="POST" action="{% url 'home_contact' %}" class="row justify-content-center" data-aos="fade-up" data-aos-delay="400">
+
+        <form method="POST" action="{% url 'home_contact' %}" style="max-width:700px; margin:0 auto;">
             {% csrf_token %}
-            <div class="col-md-4">
-                <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:16px;">
+                <input type="text" name="name" class="nb-input" placeholder="Your Name" required>
+                <input type="email" name="email" class="nb-input" placeholder="Your Email" required>
+                <input type="text" name="phone" class="nb-input" placeholder="Phone Number" required pattern="[0-9]{10}">
             </div>
-            <div class="col-md-4">
-                <input type="email" name="email" class="form-control mb-3" placeholder="Your Email" required>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="phone" class="form-control mb-3" placeholder="Your Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
-            </div>
-            <div class="col-md-8">
-                <textarea name="message" class="form-control mb-3" rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn btn-light px-4">Send Message</button>
-            </div>
+            <textarea name="message" class="nb-textarea" placeholder="Your Message" required style="margin-bottom:16px;"></textarea>
+            <button type="submit" class="nb-btn nb-btn-yellow">Send Message</button>
         </form>
     </div>
 </section>
 
 <script>
-    window.addEventListener("load", function() {
-        document.getElementById("preloader").style.display = "none";
+    let current = 0;
+    const total = 4;
+
+    function carouselGo(n) {
+        current = n;
+        document.getElementById('carouselInner').style.transform = `translateX(-${current * 100}%)`;
+        document.querySelectorAll('.nb-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function carouselMove(dir) {
+        carouselGo((current + dir + total) % total);
+    }
+
+    setInterval(() => carouselMove(1), 5000);
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') carouselMove(-1);
+        if (e.key === 'ArrowRight') carouselMove(1);
+    });
+
+    window.addEventListener('load', () => {
+        document.getElementById('preloader').style.display = 'none';
     });
 </script>
-
-
-
-
 
 {% endblock %}

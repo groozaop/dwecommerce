@@ -1,302 +1,173 @@
-
 {% extends 'base.html' %}
-
 {% load static %}
 {% block content %}
-<!-- Products Section -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold" data-aos="fade-up">Our Products</h2>
-    <div class="row mt-4">
-        <!-- Category 1: Computers -->
-        <div class="col-md-4" data-aos="fade-right">
-            <div class="card shadow-sm service-card">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/comp1.avif' %}" class="img-fluid mb-3" alt="Computers">
-                    <h5>Computers</h5>
-                    <p>Explore our collection of desktop computers, tablet computers, and handheld terminals suitable for businesses and institutions.</p>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <!-- Category 2: Computer Accessories -->
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-sm service-card">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/ass2.webp' %}" class="img-fluid mb-3" alt="Computer Accessories">
-                    <h5>Computer Accessories</h5>
-                    <p>Browse a variety of accessories, including thin client computers and computer data input devices like keyboards and mice.</p>
-                    
-                </div>
-            </div>
-        </div>
 
-        <!-- Category 3: Printers & Consumables -->
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="card shadow-sm service-card">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/print1.jpg' %}" class="img-fluid mb-3" alt="Printers & Consumables">
-                    <h5>Printers & Consumables</h5>
-                    <p>Find high-quality printers and consumables, including toner cartridges and ink cartridges, perfect for any office environment.</p>
-                    
-                </div>
-            </div>
-        </div>
+<!-- Page Hero -->
+<section class="nb-page-hero nb-stripe-green">
+    <div class="container">
+        <div class="nb-tag">Catalogue</div>
+        <h1 class="nb-title">Our Products</h1>
+        <p class="nb-subtitle">Explore our wide range of IT, industrial, and electrical products sourced from top brands.</p>
     </div>
+</section>
 
-    <div class="row mt-4">
-        <!-- Category 4: Classroom Furnishings -->
-        <div class="col-md-4" data-aos="fade-right">
-            <div class="card shadow-sm service-card">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/furn1.jpg' %}" class="img-fluid mb-3" alt="Classroom Furnishings">
-                    <h5>Classroom Furnishings</h5>
-                    <p>High-quality computer tables and office furniture designed for efficient and productive workspaces.</p>
-                    
-                </div>
+<!-- IT & Computer Products -->
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
+    <div class="container">
+        <div class="nb-tag">IT & Computers</div>
+        <h2 class="nb-title">Computer Products</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-card">
+                <img src="{% static 'images/comp1.avif' %}" alt="Computers">
+                <h5>Computers</h5>
+                <p>Desktop computers, tablet computers, and handheld terminals suitable for businesses and institutions.</p>
             </div>
-        </div>
-
-        <!-- Category 5: Office Furniture -->
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-sm service-card">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/furn2.webp' %}" class="img-fluid mb-3" alt="Office Furniture">
-                    <h5>Office Furniture</h5>
-                    <p>Explore a wide range of ergonomic office furniture including chairs and desks tailored for professionals.</p>
-                    
-                </div>
+            <div class="nb-card">
+                <img src="{% static 'images/ass2.webp' %}" alt="Computer Accessories">
+                <h5>Computer Accessories</h5>
+                <p>Thin client computers and data input devices like keyboards and mice.</p>
             </div>
-        </div>
-
-        <!-- Category 6: Computer Displays -->
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="card shadow-sm service-card">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/disp1.webp' %}" class="img-fluid mb-3" alt="Computer Displays">
-                    <h5>Computer Displays</h5>
-                    <p>Find high-resolution computer monitors perfect for any workspace or professional setting.</p>
-                    
-                </div>
+            <div class="nb-card">
+                <img src="{% static 'images/print1.jpg' %}" alt="Printers">
+                <h5>Printers & Consumables</h5>
+                <p>High-quality printers, toner cartridges, and ink cartridges for any office environment.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/disp1.webp' %}" alt="Displays">
+                <h5>Computer Displays</h5>
+                <p>High-resolution monitors perfect for any workspace or professional setting.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Products Section -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold" data-aos="fade-up">Our Products</h2>
-    <div class="row mt-4">
-        
-        <!-- Electrical Components & Equipment -->
-        
-
-        <!-- Hand Tools -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/hand1.jpg' %}" class="card-img-top" alt="Hand Tools">
-                <div class="card-body text-center">
-                    <h5>Hand Tools</h5>
-                    <ul class="card-body text-start">
-                        <li>Hammers</li>
-                        <li>Screwdrivers</li>
-                        <li>Pliers</li>
-                        <li>Wrenches</li>
-                    </ul>
-                    
-                </div>
+<!-- Furniture -->
+<section class="nb-stripe nb-stripe-blue">
+    <div class="container">
+        <div class="nb-tag">Furniture</div>
+        <h2 class="nb-title">Furniture Solutions</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-card">
+                <img src="{% static 'images/furn1.jpg' %}" alt="Classroom Furnishings">
+                <h5>Classroom Furnishings</h5>
+                <p>Computer tables and institutional furniture designed for efficient workspaces.</p>
             </div>
-        </div>
-
-        <!-- Power Tools -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/drill1.avif' %}" class="card-img-top" alt="Power Tools">
-                <div class="card-body text-center">
-                    <h5>Power Tools</h5>
-                    <ul class="card-body text-start">
-                        <li>Electric Drills</li>
-                        <li>Grinders</li>
-                        <li>Saws</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Measuring Instruments -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/meas1.webp' %}" class="card-img-top" alt="Measuring Instruments">
-                <div class="card-body text-center">
-                    <h5>Measuring Instruments</h5>
-                    <ul class="card-body text-start">
-                        <li>Calipers</li>
-                        <li>Micrometers</li>
-                        <li>Gauges</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Welding Equipment -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="800">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/weld1.webp' %}" class="card-img-top" alt="Welding Equipment">
-                <div class="card-body text-center">
-                    <h5>Welding Equipment</h5>
-                    <ul class="card-body text-start">
-                        <li>Welding Machines</li>
-                        <li>Welding Torches</li>
-                        <li>Protective Gear</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Electrical Testing Instruments -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="1000">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/ele2.jpeg' %}" class="card-img-top" alt="Electrical Testing Instruments">
-                <div class="card-body text-center">
-                    <h5>Electrical Testing Instruments</h5>
-                    <ul class="card-body text-start">
-                        <li>Multimeters</li>
-                        <li>Insulation Testers</li>
-                        <li>Diagnostic Devices</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Automotive Tools -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="1200">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/auto1.jpg' %}" class="card-img-top" alt="Automotive Tools">
-                <div class="card-body text-center">
-                    <h5>Automotive Tools</h5>
-                    <ul class="card-body text-start">
-                        <li>Engine Analyzers</li>
-                        <li>Diagnostic Equipment</li>
-                        <li>Repair Tools</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Carpentry Tools -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="1400">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/carp1.jpg' %}" class="card-img-top" alt="Carpentry Tools">
-                <div class="card-body text-center">
-                    <h5>Carpentry Tools</h5>
-                    <ul class="card-body text-start">
-                        <li>Saws</li>
-                        <li>Chisels</li>
-                        <li>Planes</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section class="container my-5">
-    <h2 class="text-center fw-bold" data-aos="fade-up">Electrical Components & Equipment</h2>
-    <div class="row mt-4">
-        <!-- Batteries & Uninterruptible Power Supplies -->
-        <div class="col-md-4" data-aos="fade-right">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/batt1.jpg' %}" alt="Batteries & Uninterruptible Power Supplies" class="card-img-top img-fluid">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Batteries & Uninterruptible Power Supplies</h5>
-                    <p class="card-text">Ensure uninterrupted power supply with high-quality batteries and UPS systems.</p>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Wires & Cables -->
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/wire1.jpg' %}" alt="Wires & Cables" class="card-img-top img-fluid">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Wires & Cables</h5>
-                    <p class="card-text">Browse our extensive collection of wires and cables for various electrical needs.</p>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Lighting Equipment -->
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/light1.jpg' %}" alt="Lighting Equipment" class="card-img-top img-fluid">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Lighting Equipment</h5>
-                    <p class="card-text">From LED lights to emergency lights, find all the lighting solutions you need.</p>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <!-- Heating, Ventilation & Air Conditioning Systems -->
-        <!-- <div class="col-md-4" data-aos="fade-right">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/300x200" alt="HVAC Systems" class="card-img-top">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Heating, Ventilation & Air Conditioning Systems</h5>
-                    <p class="card-text">Explore HVAC solutions to ensure optimal climate control in any space.</p>
-                    
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Switchgear -->
-        <!-- <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/300x200" alt="Switchgear" class="card-img-top">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Switchgear</h5>
-                    <p class="card-text">Reliable switchgear products for controlling and protecting electrical circuits.</p>
-                    
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Portable Motors & Generators -->
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/motor1.jpeg' %}" alt="Portable Motors & Generators" class="card-img-top">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Portable Motors & Generators</h5>
-                    <p class="card-text">Find the best portable motors and generators for all your power needs.</p>
-                    
-                </div>
-            </div>
-        </div>
-    <!-- </div> -->
-
-    <!-- <div class="row mt-4"> -->
-        <!-- Electrical Measuring & Testing Instruments -->
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow-sm">
-                <img src="{% static 'images/test1.jpeg' %}" alt="Measuring & Testing Instruments" class="card-img-top">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Electrical Measuring & Testing Instruments</h5>
-                    <p class="card-text">Quality instruments for precise electrical measurements and testing.</p>
-                    
-                </div>
+            <div class="nb-card">
+                <img src="{% static 'images/furn2.webp' %}" alt="Office Furniture">
+                <h5>Office Furniture</h5>
+                <p>Ergonomic office furniture including chairs and desks tailored for professionals.</p>
             </div>
         </div>
     </div>
 </section>
+
+<!-- ITI / Industrial Tools -->
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
+    <div class="container">
+        <div class="nb-tag">Industrial Tools</div>
+        <h2 class="nb-title">ITI Training Tools & Equipment</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-card">
+                <img src="{% static 'images/hand1.jpg' %}" alt="Hand Tools">
+                <h5>Hand Tools</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Hammers</li>
+                    <li>Screwdrivers</li>
+                    <li>Pliers</li>
+                    <li>Wrenches</li>
+                </ul>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/drill1.avif' %}" alt="Power Tools">
+                <h5>Power Tools</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Electric Drills</li>
+                    <li>Grinders</li>
+                    <li>Saws</li>
+                </ul>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/meas1.webp' %}" alt="Measuring Instruments">
+                <h5>Measuring Instruments</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Calipers</li>
+                    <li>Micrometers</li>
+                    <li>Gauges</li>
+                </ul>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/weld1.webp' %}" alt="Welding Equipment">
+                <h5>Welding Equipment</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Welding Machines</li>
+                    <li>Welding Torches</li>
+                    <li>Protective Gear</li>
+                </ul>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/ele2.jpeg' %}" alt="Electrical Testing">
+                <h5>Electrical Testing Instruments</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Multimeters</li>
+                    <li>Insulation Testers</li>
+                    <li>Diagnostic Devices</li>
+                </ul>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/auto1.jpg' %}" alt="Automotive Tools">
+                <h5>Automotive Tools</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Engine Analyzers</li>
+                    <li>Diagnostic Equipment</li>
+                    <li>Repair Tools</li>
+                </ul>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/carp1.jpg' %}" alt="Carpentry Tools">
+                <h5>Carpentry Tools</h5>
+                <ul style="padding-left:16px; margin-top:8px;">
+                    <li>Saws</li>
+                    <li>Chisels</li>
+                    <li>Planes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Electrical Components -->
+<section class="nb-stripe nb-stripe-yellow">
+    <div class="container">
+        <div class="nb-tag">Electrical</div>
+        <h2 class="nb-title">Electrical Components & Equipment</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="nb-card">
+                <img src="{% static 'images/batt1.jpg' %}" alt="Batteries & UPS">
+                <h5>Batteries & UPS</h5>
+                <p>Ensure uninterrupted power supply with high-quality batteries and UPS systems.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/wire1.jpg' %}" alt="Wires & Cables">
+                <h5>Wires & Cables</h5>
+                <p>Extensive collection of wires and cables for various electrical needs.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/light1.jpg' %}" alt="Lighting">
+                <h5>Lighting Equipment</h5>
+                <p>From LED lights to emergency lights, all lighting solutions you need.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/motor1.jpeg' %}" alt="Motors & Generators">
+                <h5>Portable Motors & Generators</h5>
+                <p>Best portable motors and generators for all your power needs.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/test1.jpeg' %}" alt="Testing Instruments">
+                <h5>Electrical Measuring & Testing Instruments</h5>
+                <p>Quality instruments for precise electrical measurements and testing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

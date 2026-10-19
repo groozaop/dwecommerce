@@ -1,58 +1,78 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
-<section id="contact" class="py-5">
+
+<!-- Page Hero -->
+<section class="nb-page-hero nb-stripe-pink">
     <div class="container">
-        <h2 class="text-center fw-bold animate__animated animate__fadeIn animate__delay-1s">Contact Us</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Get in Touch</h4>
-                <p>Have questions or need assistance? Reach out to us and we will be happy to help!</p>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Phone</label>
-                        <input type="text" name="phone" required pattern="[0-9]{10}" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Subject</label>
-                        <input type="text" name="subject" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Message</label>
-                        <textarea name="message" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-                
+        <div class="nb-tag">Reach Out</div>
+        <h1 class="nb-title">Contact Us</h1>
+        <p class="nb-subtitle">Have questions or need assistance? We're happy to help!</p>
+    </div>
+</section>
+
+<section class="nb-section" style="background:#fff;">
+    <div class="container">
+        <div style="display:flex; flex-wrap:wrap; gap:48px;">
+
+            <!-- Form -->
+            <div style="flex:2; min-width:280px;">
+                <div class="nb-tag">Send a Message</div>
+                <h2 class="nb-title" style="font-size:1.8rem;">Get in Touch</h2>
+
                 {% if messages %}
-                    <div class="mt-3">
-                        {% for message in messages %}
-                            <div class="alert alert-success">{{ message }}</div>
-                        {% endfor %}
-                    </div>
+                <div class="nb-alert nb-alert-success">
+                    {% for message in messages %}{{ message }}{% endfor %}
+                </div>
                 {% endif %}
-                
+
+                <form method="POST" style="margin-top:24px;">
+                    {% csrf_token %}
+                    <div class="nb-form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="nb-input" required>
+                    </div>
+                    <div class="nb-form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="nb-input" required>
+                    </div>
+                    <div class="nb-form-group">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="nb-input" required pattern="[0-9]{10}">
+                    </div>
+                    <div class="nb-form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" class="nb-input" required>
+                    </div>
+                    <div class="nb-form-group">
+                        <label>Message</label>
+                        <textarea name="message" class="nb-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="nb-btn nb-btn-black">Send Message</button>
+                </form>
             </div>
-            <div class="col-md-6 mt-4 px-4">
-                <h4>Our Address</h4>
-                <p>Dwarkadhish E-Commerce<br>
-                    34, Shakti Hotel Complex, Shil (Mangrol), Junagadh - 362240
-                </p>
-                <h5>Phone:</h5>
-                <p>+91-81409 50273</p>
-                <h5>Email:</h5>
-                <p>inquiry@dwecommerce.in</p>
+
+            <!-- Info -->
+            <div style="flex:1; min-width:240px;">
+                <div class="nb-tag">Our Details</div>
+                <h2 class="nb-title" style="font-size:1.8rem;">Our Address</h2>
+                <div style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+                    <div class="nb-card" style="padding:16px;">
+                        <strong>📍 Address</strong>
+                        <p style="margin-top:6px;">34, Shakti Hotel Complex, Shil (Mangrol), Junagadh - 362240</p>
+                    </div>
+                    <div class="nb-card" style="padding:16px; background:var(--yellow);">
+                        <strong>📞 Phone</strong>
+                        <p style="margin-top:6px;">+91-81409 50273</p>
+                    </div>
+                    <div class="nb-card" style="padding:16px;">
+                        <strong>✉️ Email</strong>
+                        <p style="margin-top:6px;">inquiry@dwecommerce.in</p>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
+
 {% endblock %}

@@ -1,38 +1,60 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
-<section id="services" class="py-5 bg-light">
+
+<!-- Page Hero -->
+<section class="nb-page-hero nb-stripe-blue">
     <div class="container">
-        <h2 class="text-center fw-bold animate__animated animate__fadeIn animate__delay-1s">Our Services</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" class="card-img-top" alt="Service Image">
-                    <div class="card-body">
-                        <h5 class="card-title">IT & Computer Products</h5>
-                        <p class="card-text">We offer a wide range of high-quality IT products, including laptops, desktops, monitors, and networking devices, all tailored to your business needs.</p>
-                    </div>
-                </div>
+        <div class="nb-tag">What We Offer</div>
+        <h1 class="nb-title">Our Services</h1>
+        <p class="nb-subtitle">Comprehensive solutions for IT, medical, and industrial needs.</p>
+    </div>
+</section>
+
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
+    <div class="container">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+            <div class="nb-icon-box">
+                <div class="icon">💻</div>
+                <h5>IT & Computer Products</h5>
+                <p>Wide range of high-quality IT products including laptops, desktops, monitors, and networking devices, all tailored to your business needs.</p>
             </div>
-            <div class="col-md-4">
-                <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" class="card-img-top" alt="Service Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Medical & Surgical Supplies</h5>
-                        <p class="card-text">We supply various medical and surgical tools and consumables, ensuring that your medical institution operates smoothly and efficiently.</p>
-                    </div>
-                </div>
+            <div class="nb-icon-box" style="background:var(--yellow);">
+                <div class="icon">🏥</div>
+                <h5>Medical & Surgical Supplies</h5>
+                <p>Medical and surgical tools and consumables ensuring your medical institution operates smoothly and efficiently.</p>
             </div>
-            <div class="col-md-4">
-                <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" class="card-img-top" alt="Service Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Industrial Training Institute Equipment</h5>
-                        <p class="card-text">We provide the latest industrial training tools and equipment to help businesses upskill their workforce with hands-on training solutions.</p>
-                    </div>
-                </div>
+            <div class="nb-icon-box">
+                <div class="icon">🏭</div>
+                <h5>Industrial Training Institute Equipment</h5>
+                <p>Latest industrial training tools and equipment to help businesses upskill their workforce with hands-on training solutions.</p>
+            </div>
+            <div class="nb-icon-box" style="background:var(--green);">
+                <div class="icon">🛒</div>
+                <h5>GeM Product Supply</h5>
+                <p>Trusted reseller on the Government e-Marketplace supplying a wide range of products to government institutions.</p>
+            </div>
+            <div class="nb-icon-box">
+                <div class="icon">🔧</div>
+                <h5>Annual Maintenance Contracts</h5>
+                <p>AMC services for IT infrastructure, medical equipment, and industrial tools. Contact us for customized plans.</p>
+            </div>
+            <div class="nb-icon-box" style="background:var(--pink);">
+                <div class="icon">📦</div>
+                <h5>Bulk & Tender Orders</h5>
+                <p>We handle logistics and order fulfillment for bulk purchases and government tender orders across India.</p>
             </div>
         </div>
     </div>
 </section>
+
+<!-- CTA -->
+<section class="nb-stripe nb-stripe-black" style="text-align:center;">
+    <div class="container">
+        <div class="nb-tag" style="background:var(--yellow); color:#000;">Get Started</div>
+        <h2 class="nb-title" style="color:#fff;">Ready to Work Together?</h2>
+        <p style="color:#ccc; margin-bottom:32px;">Contact us today for a customized solution for your business.</p>
+        <a href="{% url 'contact' %}" class="nb-btn nb-btn-yellow">Contact Us</a>
+    </div>
+</section>
+
 {% endblock %}
