@@ -36,6 +36,19 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     background-color: #f5f0e8;
     color: var(--black);
+    overflow-x: hidden;
+}
+
+/* ── Scroll Progress Bar ── */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: var(--black);
+    z-index: 9999;
+    transition: width 0.1s linear;
 }
 
 /* ── Preloader ── */
@@ -47,15 +60,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 9998;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .preloader-content { text-align: center; }
 
 .preloader-logo {
-    width: 100px;
+    width: 120px;
     margin-bottom: 16px;
     border: var(--border);
+    animation: preloaderPop 0.8s ease forwards;
+}
+
+@keyframes preloaderPop {
+    0%   { transform: scale(0.5); opacity: 0; }
+    80%  { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .spinner {
@@ -68,9 +94,7 @@ body {
     margin: 0 auto;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── Navbar ── */
 .nb-navbar {
@@ -81,6 +105,12 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nb-navbar.scrolled {
+    padding: 6px 0;
+    box-shadow: 0 4px 0 #000;
 }
 
 .nb-navbar .container {
@@ -99,6 +129,7 @@ body {
     font-weight: 700;
     color: var(--black);
     text-decoration: none;
+    transition: gap 0.3s;
 }
 
 .nb-brand img {
@@ -107,6 +138,12 @@ body {
     border: var(--border);
     object-fit: contain;
     background: var(--white);
+    transition: width 0.3s, height 0.3s;
+}
+
+.nb-navbar.scrolled .nb-brand img {
+    width: 36px;
+    height: 36px;
 }
 
 .nb-nav {
@@ -171,12 +208,12 @@ body {
 
 /* ── Page wrapper ── */
 main {
-    margin-top: 80px;
+    margin-top: 76px;
     padding: 0;
 }
 
 /* ── Utility ── */
-.nb-section { padding: 60px 0; }
+.nb-section { padding: 80px 0; }
 
 .nb-tag {
     display: inline-block;
@@ -215,6 +252,7 @@ main {
     cursor: pointer;
     transition: box-shadow 0.15s, transform 0.15s;
     box-shadow: var(--shadow);
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .nb-btn:hover {
@@ -224,8 +262,8 @@ main {
 
 .nb-btn-black { background: var(--black); color: var(--yellow); }
 .nb-btn-yellow { background: var(--yellow); color: var(--black); }
-.nb-btn-white { background: var(--white); color: var(--black); }
-.nb-btn-pink { background: var(--pink); color: var(--black); }
+.nb-btn-white  { background: var(--white);  color: var(--black); }
+.nb-btn-pink   { background: var(--pink);   color: var(--black); }
 
 /* ── Cards ── */
 .nb-card {
@@ -256,14 +294,6 @@ main {
 }
 
 /* ── Hero ── */
-.nb-hero {
-    min-height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    border-bottom: var(--border);
-    padding: 60px 0;
-}
-
 .nb-hero-yellow { background: var(--yellow); }
 .nb-hero-pink   { background: var(--pink); }
 .nb-hero-blue   { background: var(--blue); }
@@ -278,14 +308,91 @@ main {
     background: var(--white);
 }
 
+/* ── DOOR ENTRY HERO ── */
+.door-hero {
+    position: relative;
+    height: 100vh;
+    background: #111;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.door-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.door-hero-bg .store-inside {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Door panels */
+.door-left, .door-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #111;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.door-left  { left: 0; transform-origin: left center; }
+.door-right { right: 0; transform-origin: right center; }
+
+.door-left.open  { transform: perspective(1200px) rotateY(-110deg); }
+.door-right.open { transform: perspective(1200px) rotateY(110deg); }
+
+.door-handle {
+    width: 6px;
+    height: 60px;
+    background: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 3px;
+    position: absolute;
+}
+
+.door-left  .door-handle { right: 20px; }
+.door-right .door-handle { left: 20px; }
+
+.door-label {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--yellow);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: pulse 1.5s ease infinite;
+    z-index: 3;
+    white-space: nowrap;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+
 /* ── Carousel ── */
 .nb-carousel { position: relative; overflow: hidden; }
-
-.nb-carousel-inner { display: flex; transition: transform 0.4s ease; }
+.nb-carousel-inner { display: flex; transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1); }
 
 .nb-slide {
     min-width: 100%;
-    padding: 60px 0;
+    padding: 80px 0;
     border-bottom: var(--border);
 }
 
@@ -305,6 +412,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.15s, color 0.15s;
 }
 
 .nb-carousel-btn:hover { background: var(--yellow); color: var(--black); }
@@ -326,6 +434,7 @@ main {
     border: 2px solid var(--black);
     background: var(--white);
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .nb-dot.active { background: var(--black); }
@@ -417,11 +526,11 @@ main {
     color: #aaa;
 }
 
-/* ── Section dividers ── */
+/* ── Section stripes ── */
 .nb-stripe {
     border-top: var(--border);
     border-bottom: var(--border);
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .nb-stripe-yellow { background: var(--yellow); }
@@ -456,22 +565,14 @@ main {
     transform: translate(-2px, -2px);
 }
 
-.nb-icon-box .icon {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-}
-
-.nb-icon-box h5 {
-    font-weight: 700;
-    margin-bottom: 8px;
-}
+.nb-icon-box .icon { font-size: 2.5rem; margin-bottom: 12px; }
+.nb-icon-box h5    { font-weight: 700; margin-bottom: 8px; }
 
 /* ── Step diagram ── */
 .nb-steps {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
 }
 
 .nb-step {
@@ -484,18 +585,217 @@ main {
     font-weight: 600;
 }
 
-.nb-step-arrow {
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding: 8px 0;
-}
+.nb-step-arrow { font-size: 1.5rem; font-weight: 700; padding: 8px 0; }
 
-@media (max-width: 768px) {
-    .nb-step { width: 90%; }
-}
+@media (max-width: 768px) { .nb-step { width: 90%; } }
 
 /* ── Page hero banner ── */
 .nb-page-hero {
     padding: 80px 0 60px;
     border-bottom: var(--border);
+}
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   "Walking into the store" effect
+══════════════════════════════════════ */
+
+/* Base hidden state for all reveal elements */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: transform, opacity;
+}
+
+/* Direction variants */
+.reveal-up     { transform: translateY(60px); }
+.reveal-down   { transform: translateY(-60px); }
+.reveal-left   { transform: translateX(-80px); }
+.reveal-right  { transform: translateX(80px); }
+.reveal-zoom   { transform: scale(0.85); }
+.reveal-flip   { transform: perspective(600px) rotateX(20deg) translateY(40px); }
+
+/* Visible state — added by IntersectionObserver */
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger delays for grid children */
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s;    opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.24s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.36s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.48s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.60s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.72s; opacity: 1; transform: none; }
+
+/* ── Parallax sections ── */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    inset: -20%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    will-change: transform;
+}
+
+.parallax-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Aisle divider — "walking past a shelf sign" ── */
+.aisle-sign {
+    background: var(--black);
+    color: var(--yellow);
+    text-align: center;
+    padding: 20px 40px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-top: var(--border);
+    border-bottom: var(--border);
+    overflow: hidden;
+    position: relative;
+}
+
+.aisle-sign::before, .aisle-sign::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--yellow);
+}
+
+.aisle-sign::before { left: 40px; }
+.aisle-sign::after  { right: 40px; }
+
+/* ── Marquee ticker ── */
+.nb-ticker {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 10px 0;
+    overflow: hidden;
+    border-top: var(--border);
+    border-bottom: var(--border);
+    white-space: nowrap;
+}
+
+.nb-ticker-inner {
+    display: inline-block;
+    animation: ticker 25s linear infinite;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+@keyframes ticker {
+    0%   { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ── Counter animation ── */
+.count-up {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+/* ══════════════════════════════════════
+   THREE.JS STORE WRAPPER
+══════════════════════════════════════ */
+#threejs-wrapper {
+    position: relative;
+    height: 600vh; /* scroll distance = how long the walkthrough lasts */
+}
+
+#store-canvas-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#store-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Overlay UI panels shown during 3D walk */
+#store-overlays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.store-section-overlay {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--yellow);
+    border: var(--border);
+    box-shadow: var(--shadow-lg);
+    padding: 24px 40px;
+    text-align: center;
+    max-width: 560px;
+    width: 90%;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.store-section-overlay h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.store-section-overlay p {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Scroll hint arrow */
+#scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--yellow);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: pulse 1.5s ease infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
 }

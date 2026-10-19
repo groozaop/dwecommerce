@@ -5,105 +5,105 @@
 <!-- Preloader -->
 <div id="preloader">
     <div class="preloader-content">
-        <img src="{% static 'images/DElogo.png' %}" alt="Logo">
+        <img src="{% static 'images/DElogo.png' %}" alt="Logo" class="preloader-logo">
         <div class="spinner"></div>
     </div>
 </div>
 
-<!-- Hero Carousel -->
-<div class="nb-carousel" id="heroCarousel">
-    <div class="nb-carousel-inner" id="carouselInner">
+<!-- ═══════════════════════════════════════════
+     THREE.JS 3D STORE WALKTHROUGH
+     600vh tall wrapper — camera walks forward
+     as user scrolls through it
+════════════════════════════════════════════ -->
+<div id="threejs-wrapper">
 
-        <!-- Slide 1 -->
-        <div class="nb-slide nb-hero-yellow">
-            <div class="container">
-                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
-                    <div style="flex:1; min-width:280px;">
-                        <div class="nb-tag">GeM Registered Reseller</div>
-                        <h1 class="nb-title">Empowering Businesses with IT, Medical & Industrial Solutions!</h1>
-                        <p class="nb-subtitle">Your one-stop shop for cutting-edge technology, healthcare essentials, and industrial tools.</p>
-                        <a href="{% url 'contact' %}" class="nb-btn nb-btn-black">Connect with Us Now</a>
-                    </div>
-                    <div style="flex:1; min-width:240px; text-align:center;">
-                        <img src="{% static 'images/Gemlogo.png' %}" class="nb-hero-img" alt="GeM Logo">
-                    </div>
-                </div>
+    <!-- Sticky canvas viewport -->
+    <div id="store-canvas-sticky">
+        <canvas id="store-canvas"></canvas>
+
+        <!-- Overlay info panels that appear per aisle -->
+        <div id="store-overlays">
+
+            <!-- Door phase — shown before entering -->
+            <div class="store-section-overlay" data-trigger="0.0" data-until="0.14">
+                <div class="nb-tag">Welcome</div>
+                <h2>Dwarkadhish E-Commerce</h2>
+                <p>GeM-registered reseller of IT, Medical & Industrial Solutions. Scroll to open the door.</p>
             </div>
+
+            <!-- Aisle 1 — IT -->
+            <div class="store-section-overlay" data-trigger="0.16">
+                <div class="nb-tag">Aisle 1</div>
+                <h2>💻 IT & Computers</h2>
+                <p>Laptops, desktops, monitors, networking devices and accessories from top brands.</p>
+            </div>
+
+            <!-- Aisle 2 — Tools -->
+            <div class="store-section-overlay" data-trigger="0.32">
+                <div class="nb-tag">Aisle 2</div>
+                <h2>🔧 Industrial Tools</h2>
+                <p>Hand tools, power tools, welding equipment and measuring instruments for ITI & industry.</p>
+            </div>
+
+            <!-- Aisle 3 — Electrical -->
+            <div class="store-section-overlay" data-trigger="0.48">
+                <div class="nb-tag">Aisle 3</div>
+                <h2>⚡ Electrical Equipment</h2>
+                <p>Batteries, UPS, wires, cables, lighting and testing instruments from trusted brands.</p>
+            </div>
+
+            <!-- Aisle 4 — Furniture -->
+            <div class="store-section-overlay" data-trigger="0.64">
+                <div class="nb-tag">Aisle 4</div>
+                <h2>🪑 Furniture</h2>
+                <p>Office desks, chairs, classroom furnishings and ergonomic workstations.</p>
+            </div>
+
+            <!-- Aisle 5 — Medical -->
+            <div class="store-section-overlay" data-trigger="0.80">
+                <div class="nb-tag">Aisle 5</div>
+                <h2>🏥 Medical Supplies</h2>
+                <p>Surgical tools, consumables, masks, gloves and medical equipment.</p>
+            </div>
+
+            <!-- End -->
+            <div class="store-section-overlay" data-trigger="0.94">
+                <div class="nb-tag">You've seen it all!</div>
+                <h2>Ready to Order?</h2>
+                <p>Scroll down to explore our full catalogue and get in touch.</p>
+            </div>
+
         </div>
 
-        <!-- Slide 2 -->
-        <div class="nb-slide nb-hero-blue">
-            <div class="container">
-                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
-                    <div style="flex:1; min-width:280px;">
-                        <div class="nb-tag">IT Products</div>
-                        <h1 class="nb-title">Upgrade Your Tech – Best IT Products at Unbeatable Prices!</h1>
-                        <p class="nb-subtitle">Laptops, desktops, software & accessories – Fast delivery, premium brands!</p>
-                        <a href="{% url 'products' %}" class="nb-btn nb-btn-black">Shop Now</a>
-                    </div>
-                    <div style="flex:1; min-width:240px; text-align:center;">
-                        <img src="{% static 'images/hero1bg.png' %}" class="nb-hero-img" alt="IT Products">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="nb-slide nb-hero-green">
-            <div class="container">
-                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
-                    <div style="flex:1; min-width:280px;">
-                        <div class="nb-tag">Power Solutions</div>
-                        <h1 class="nb-title">Reliable Inverters & Batteries – Uninterrupted Power, Anytime!</h1>
-                        <p class="nb-subtitle">High-performance power backup solutions for homes, offices, and industries.</p>
-                        <a href="{% url 'products' %}" class="nb-btn nb-btn-black">Browse Products</a>
-                    </div>
-                    <div style="flex:1; min-width:240px; text-align:center;">
-                        <img src="{% static 'images/hero2bg.png' %}" class="nb-hero-img" alt="Power Solutions">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="nb-slide nb-hero-pink">
-            <div class="container">
-                <div style="display:flex; align-items:center; flex-wrap:wrap; gap:40px; min-height:calc(100vh - 160px);">
-                    <div style="flex:1; min-width:280px;">
-                        <div class="nb-tag">OEM Partnership</div>
-                        <h1 class="nb-title">Partner with Us...</h1>
-                        <p class="nb-subtitle">Are you an OEM looking to expand your reach? Let's collaborate and bring high-quality solutions to businesses and government organizations.</p>
-                        <a href="{% url 'support_oem' %}" class="nb-btn nb-btn-black">Partner with Us</a>
-                    </div>
-                    <div style="flex:1; min-width:240px; text-align:center;">
-                        <img src="{% static 'images/part1.png' %}" class="nb-hero-img" alt="Partner">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <div id="scroll-hint">↓ &nbsp; Scroll to Walk Through &nbsp; ↓</div>
     </div>
 
-    <button class="nb-carousel-btn prev" onclick="carouselMove(-1)">&#8592;</button>
-    <button class="nb-carousel-btn next" onclick="carouselMove(1)">&#8594;</button>
+</div><!-- end #threejs-wrapper -->
+
+<!-- ═══════════════════════════════════════════
+     TICKER
+════════════════════════════════════════════ -->
+<div class="nb-ticker">
+    <span class="nb-ticker-inner">
+        🛒 GeM Registered Reseller &nbsp;★&nbsp; IT Products &nbsp;★&nbsp; Medical Supplies &nbsp;★&nbsp; Industrial Tools &nbsp;★&nbsp; Furniture Solutions &nbsp;★&nbsp; CCTV & Security &nbsp;★&nbsp; Annual Maintenance Contracts &nbsp;★&nbsp; OEM Partnerships &nbsp;★&nbsp; Fast Delivery Across India &nbsp;★&nbsp; Trusted by 500+ Clients &nbsp;★&nbsp;
+    </span>
 </div>
 
-<div class="nb-carousel-dots" id="carouselDots">
-    <div class="nb-dot active" onclick="carouselGo(0)"></div>
-    <div class="nb-dot" onclick="carouselGo(1)"></div>
-    <div class="nb-dot" onclick="carouselGo(2)"></div>
-    <div class="nb-dot" onclick="carouselGo(3)"></div>
-</div>
+<!-- ═══════════════════════════════════════════
+     HTML SECTIONS BELOW THE 3D EXPERIENCE
+════════════════════════════════════════════ -->
 
-<!-- About Section -->
+<!-- About -->
+<div class="aisle-sign reveal reveal-up">🏪 &nbsp; Who We Are &nbsp; 🏪</div>
+
 <section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
     <div class="container">
         <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
-            <div style="flex:1; min-width:280px;">
-                <div class="nb-tag">Who We Are</div>
-                <h2 class="nb-title">About Dwarkadhish E-Commerce</h2>
+            <div style="flex:1; min-width:280px;" class="reveal reveal-left">
+                <div class="nb-tag">About Us</div>
+                <h2 class="nb-title">Dwarkadhish E-Commerce</h2>
                 <p style="margin-bottom:16px;"><strong>Dwarkadhish E-Commerce</strong> is a <strong>GeM-registered reseller</strong>, committed to providing high-quality products:</p>
-                <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:20px;" class="reveal-stagger">
                     <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ IT Solutions: Laptops, desktops, networking & accessories</li>
                     <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ CCTV & Security Solutions</li>
                     <li style="border:2px solid #000; padding:8px 14px; background:#f5f0e8; font-weight:600;">✔ Medical & Surgical Supplies</li>
@@ -112,19 +112,23 @@
                 </ul>
                 <a href="{% url 'about' %}" class="nb-btn nb-btn-black">Learn More</a>
             </div>
-            <div style="flex:1; min-width:240px; text-align:center;">
+            <div style="flex:1; min-width:240px; text-align:center;" class="reveal reveal-right">
                 <img src="{% static 'images/DElogo.png' %}" style="width:100%; max-width:360px; border:2px solid #000; box-shadow:6px 6px 0 #000; background:#fff; padding:16px;" alt="Logo">
             </div>
         </div>
     </div>
 </section>
 
-<!-- Services Section -->
+<!-- Services -->
+<div class="aisle-sign reveal reveal-up">🛠️ &nbsp; Our Services &nbsp; 🛠️</div>
+
 <section class="nb-stripe nb-stripe-yellow">
     <div class="container">
-        <div class="nb-tag">What We Do</div>
-        <h2 class="nb-title">Our Services</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+        <div class="reveal reveal-up">
+            <div class="nb-tag">What We Do</div>
+            <h2 class="nb-title">Our Services</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;" class="reveal-stagger">
             <div class="nb-icon-box">
                 <div class="icon">🛒</div>
                 <h5>All Kinds of Product Supply on GeM</h5>
@@ -144,12 +148,83 @@
     </div>
 </section>
 
-<!-- Testimonials -->
+<!-- Featured Products -->
+<div class="aisle-sign reveal reveal-up">📦 &nbsp; Featured Products &nbsp; 📦</div>
+
 <section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
     <div class="container">
-        <div class="nb-tag">Reviews</div>
-        <h2 class="nb-title">What Our Clients Say</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;">
+        <div class="reveal reveal-up">
+            <div class="nb-tag">Our Catalogue</div>
+            <h2 class="nb-title">What We Sell</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;" class="reveal-stagger">
+            <div class="nb-card">
+                <img src="{% static 'images/comp1.avif' %}" alt="Computers">
+                <h5>💻 IT & Computers</h5>
+                <p>Laptops, desktops, monitors, networking devices and accessories.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/hand1.jpg' %}" alt="Tools">
+                <h5>🔧 Industrial Tools</h5>
+                <p>Hand tools, power tools, welding equipment and measuring instruments.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/batt1.jpg' %}" alt="Electrical">
+                <h5>⚡ Electrical Equipment</h5>
+                <p>Batteries, UPS, wires, cables, lighting and testing instruments.</p>
+            </div>
+            <div class="nb-card">
+                <img src="{% static 'images/furn1.jpg' %}" alt="Furniture">
+                <h5>🪑 Furniture</h5>
+                <p>Office desks, chairs, classroom furnishings and ergonomic workstations.</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:40px;" class="reveal reveal-up">
+            <a href="{% url 'products' %}" class="nb-btn nb-btn-black">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="aisle-sign reveal reveal-up">📊 &nbsp; Our Numbers &nbsp; 📊</div>
+
+<section class="nb-stripe nb-stripe-blue">
+    <div class="container">
+        <div class="reveal reveal-up">
+            <div class="nb-tag">Achievements</div>
+            <h2 class="nb-title">Numbers That Speak</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:24px; margin-top:32px;" class="reveal-stagger">
+            <div class="nb-stat-box">
+                <h2><span class="count-up" data-target="500">0</span>+</h2>
+                <p style="font-weight:600; margin-top:8px;">Happy Clients</p>
+            </div>
+            <div class="nb-stat-box" style="background:var(--yellow);">
+                <h2><span class="count-up" data-target="1000">0</span>+</h2>
+                <p style="font-weight:600; margin-top:8px;">Products Delivered</p>
+            </div>
+            <div class="nb-stat-box">
+                <h2><span class="count-up" data-target="5">0</span>+</h2>
+                <p style="font-weight:600; margin-top:8px;">Years of Experience</p>
+            </div>
+            <div class="nb-stat-box" style="background:var(--green);">
+                <h2>4.9★</h2>
+                <p style="font-weight:600; margin-top:8px;">Customer Rating</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<div class="aisle-sign reveal reveal-up">💬 &nbsp; Client Reviews &nbsp; 💬</div>
+
+<section class="nb-section" style="background:#fff; border-bottom:2px solid #000;">
+    <div class="container">
+        <div class="reveal reveal-up">
+            <div class="nb-tag">Reviews</div>
+            <h2 class="nb-title">What Our Clients Say</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:32px;" class="reveal-stagger">
             <div class="nb-card">
                 <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
                     <img src="https://randomuser.me/api/portraits/men/1.jpg" style="width:48px; height:48px; border:2px solid #000; border-radius:50%;" alt="Ravi">
@@ -176,11 +251,15 @@
 </section>
 
 <!-- Contact CTA -->
+<div class="aisle-sign reveal reveal-up">📬 &nbsp; Get In Touch &nbsp; 📬</div>
+
 <section class="nb-stripe nb-stripe-black">
     <div class="container" style="text-align:center;">
-        <div class="nb-tag" style="background:var(--yellow); color:#000;">Get In Touch</div>
-        <h2 class="nb-title" style="color:#fff;">We Are Here to Help Your Business!</h2>
-        <p style="color:#ccc; margin-bottom:32px; font-size:1.1rem;">Reach out for product inquiries, AMCs, or OEM partnerships.</p>
+        <div class="reveal reveal-up">
+            <div class="nb-tag" style="background:var(--yellow); color:#000;">Contact</div>
+            <h2 class="nb-title" style="color:#fff;">We Are Here to Help Your Business!</h2>
+            <p style="color:#ccc; margin-bottom:32px; font-size:1.1rem;">Reach out for product inquiries, AMCs, or OEM partnerships.</p>
+        </div>
 
         {% if messages %}
         <div class="nb-alert nb-alert-success" style="max-width:600px; margin:0 auto 24px;">
@@ -188,7 +267,7 @@
         </div>
         {% endif %}
 
-        <form method="POST" action="{% url 'home_contact' %}" style="max-width:700px; margin:0 auto;">
+        <form method="POST" action="{% url 'home_contact' %}" style="max-width:700px; margin:0 auto;" class="reveal reveal-up">
             {% csrf_token %}
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:16px;">
                 <input type="text" name="name" class="nb-input" placeholder="Your Name" required>
@@ -201,30 +280,45 @@
     </div>
 </section>
 
+<!-- ── Scripts ── -->
 <script>
-    let current = 0;
-    const total = 4;
+// Preloader
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('hide'), 800);
+});
 
-    function carouselGo(n) {
-        current = n;
-        document.getElementById('carouselInner').style.transform = `translateX(-${current * 100}%)`;
-        document.querySelectorAll('.nb-dot').forEach((d, i) => d.classList.toggle('active', i === current));
-    }
-
-    function carouselMove(dir) {
-        carouselGo((current + dir + total) % total);
-    }
-
-    setInterval(() => carouselMove(1), 5000);
-
-    document.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft') carouselMove(-1);
-        if (e.key === 'ArrowRight') carouselMove(1);
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
     });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
 
-    window.addEventListener('load', () => {
-        document.getElementById('preloader').style.display = 'none';
+// Count-up
+const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = parseInt(el.dataset.target);
+        const step = target / (1500 / 16);
+        let cur = 0;
+        const t = setInterval(() => {
+            cur += step;
+            if (cur >= target) { cur = target; clearInterval(t); }
+            el.textContent = Math.floor(cur);
+        }, 16);
+        countObserver.unobserve(el);
     });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+
+// Hide scroll hint after first scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) document.getElementById('scroll-hint').style.opacity = '0';
+}, { once: true });
 </script>
+
+<!-- Three.js module -->
+<script type="module" src="{% static 'js/store3d.js' %}"></script>
 
 {% endblock %}

@@ -34,4 +34,7 @@ Thumbs.db
 # Ignore Nginx & Gunicorn logs
 *.log
 gunicorn.sock
-settings.py
+
+# Ignore backup images
+*_backup.png
+*_backup.jpg
